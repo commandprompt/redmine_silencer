@@ -1,0 +1,4 @@
+# German strings go here for Rails i18n
+# German translation by Tobias Fischer https://github.com/paginagmbh
+de:
+  label_silencer_suppress_mail: "Unterdrücke E-Mail-Benachrichtigung"

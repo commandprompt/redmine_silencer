@@ -1,0 +1,3 @@
+# Japanese strings go here for Rails i18n
+ja:
+  label_silencer_suppress_mail: "この更新ではメール通知しない"

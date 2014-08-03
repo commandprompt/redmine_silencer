@@ -1,14 +1,29 @@
-= silencer
+= Redmine Silencer 2
 
-A Redmine plugin to suppress email notifications (at will) when
-updating issues.
+A Redmine plugin to suppress email notifications (at will) when updating issues.
 
-For Redmine versions prior to 2.x, check out the pre-2.x branch.
+Especially useful for silent mass-updates when you don't want to spam all the project participants with your minor update.
 
-= Installation
+<em>This is a fork of the 'Redmine Silencer' plugin with contributions from github users @commandprompt, @paginagmbh and @tofi86</em>
 
-Simply clone the git repo under plugins/ and restart the webserver.
+<em>This plugin is listed in the {Redmine plugin directory}[http://www.redmine.org/plugins/redmine_silencer]</em>
 
-Then go to Administration > Roles and permissions and enable 'Suppress
+
+== Requirements
+
+Works fine with Redmine 2.0 - 2.4, whereas the {original repo}[https://github.com/a1exsh/redmine_silencer] doesn't (after commit f6cc13725c)
+
+* For Redmine versions prior to 2.x, check out the +pre-2.x+ branch.
+* For Redmine versions prior to 2.4, check out the +pre-2.4+ branch.
+
+
+== Installation
+
+Simply clone the git repo under +plugins/+ in your redmine directory and restart the webserver.
+
+Then go to _Administration_ > _Roles and permissions_ and enable 'Suppress
 mail notifications' permission for roles that need to be able to do
-that (typical Manager and/or Developer.)
+that (typically Manager and/or Developer.)
+
+You can also enable the 'Suppress mail notifications' checkbox by default in _Administration_
+> _Plugins_ > _Configure_ for the 'redmine_silencer' plugin.

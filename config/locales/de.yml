@@ -2,3 +2,5 @@
 # German translation by Tobias Fischer https://github.com/paginagmbh
 de:
   label_silencer_suppress_mail: "Unterdrücke E-Mail-Benachrichtigung"
+  permission_suppress_mail_notifications: "E-Mail-Benachrichtigung unterdrücken"
+  silencer_default_settings_label: "Checkbox zum Unterdrücken der Ticket-E-Mail-Benachrichtigungen standardmäßig aktivieren?"

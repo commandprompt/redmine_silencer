@@ -4,7 +4,7 @@
   <% end %>
   <p>
     <%= hidden_field_tag 'suppress_mail', '0', :id => nil %>
-    <%= check_box_tag 'suppress_mail' %>
+    <%= check_box_tag 'suppress_mail', 1, true %>
     <%= label_tag 'suppress_mail', l(:label_silencer_suppress_mail) %>
   </p>
   <script>

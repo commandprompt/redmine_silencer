@@ -1,0 +1,6 @@
+# Spanish strings go here for Rails i18n
+# Spanish translation by Andres Arias https://github.com/mrlocke
+es:
+  label_silencer_suppress_mail: "Silenciar las notificaciones por correo"
+  permission_suppress_mail_notifications: "Silenciar las notificaciones por correo"
+  silencer_default_settings_label: "Marque la casilla para suprimir las notificaciones por correo por defecto"

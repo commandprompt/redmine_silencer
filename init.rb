@@ -4,7 +4,7 @@ Redmine::Plugin.register :redmine_silencer do
   name 'Redmine Silencer plugin'
   author 'Alex Shulgin <ash@commandprompt.com>'
   description 'A Redmine plugin to suppress issue email notifications.'
-  version '0.2.0'
+  version '0.2.1'
   url 'https://github.com/commandprompt/redmine_silencer'
   requires_redmine :version_or_higher => '2.0.x'
 
@@ -13,7 +13,6 @@ end
 
 prepare_block = Proc.new do
   Journal.send(:include, RedmineSilencer::JournalPatch)
-  JournalObserver.send(:include, RedmineSilencer::JournalObserverPatch)
 end
 
 if Rails.env.development?

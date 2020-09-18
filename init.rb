@@ -4,10 +4,9 @@ Redmine::Plugin.register :redmine_silencer do
   name 'Redmine Silencer plugin'
   author 'Alex Shulgin <ash@commandprompt.com>'
   description 'A Redmine plugin to suppress issue email notifications.'
-  version '0.2.1'
+  version '0.2.2'
   url 'https://github.com/commandprompt/redmine_silencer'
-  requires_redmine :version_or_higher => '2.0.x'
-
+  requires_redmine :version_or_higher => '3.4'
   permission :suppress_mail_notifications, {}
 end
 
@@ -16,7 +15,7 @@ prepare_block = Proc.new do
 end
 
 if Rails.env.development?
-  ActionDispatch::Reloader.to_prepare { prepare_block.call }
+  ((Rails.version > "5")? ActiveSupport::Reloader : ActionDispatch::Callbacks).to_prepare { prepare_block.call }
 else
   prepare_block.call
 end

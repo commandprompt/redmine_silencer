@@ -16,7 +16,14 @@ if (bulk_edit_form_el) {
           || confirm('You are about to bulk-update a number of issues.  You might have wanted to suppress email notifications.\n\nClick OK to proceed updating or Cancel stay on this page.')) {
         e.currentTarget.submit();
       } else {
-        e.preventDefault();
+            e.preventDefault();
+            console.log('removing')
+            setTimeout(function() {
+                  var submit_btn = $("input[type='submit']")
+                  submit_btn.removeAttr('disabled')
+                  $.rails.enableElement(submit_btn)
+
+            }, 50)
       }
   });
 }

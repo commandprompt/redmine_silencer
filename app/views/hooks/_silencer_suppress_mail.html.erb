@@ -1,4 +1,4 @@
-<% if User.current.allowed_to?(:suppress_mail_notifications, @project) %>
+<% if User.current.allowed_to?(:suppress_mail_notifications, @project) || User.current.allowed_to?(:suppress_mail_notifications, @projects) %>
   <% if defined?(issues) %>
     <hr>
   <% end %>
@@ -8,24 +8,22 @@
     <%= label_tag 'suppress_mail', l(:label_silencer_suppress_mail) %>
   </p>
   <script>
-var bulk_edit_form_el = $('#bulk_edit_form');
-if (bulk_edit_form_el) {
-  var suppress_mail_el = $('#suppress_mail');
-  bulk_edit_form_el.submit(function(e) {
-      if (suppress_mail_el.is(':checked')
-          || confirm('You are about to bulk-update a number of issues.  You might have wanted to suppress email notifications.\n\nClick OK to proceed updating or Cancel stay on this page.')) {
-        e.currentTarget.submit();
-      } else {
-            e.preventDefault();
-            console.log('removing')
-            setTimeout(function() {
-                  var submit_btn = $("input[type='submit']")
-                  submit_btn.removeAttr('disabled')
-                  $.rails.enableElement(submit_btn)
-
-            }, 50)
-      }
-  });
-}
+    let bulk_edit_form_el = $('#bulk_edit_form');
+    if (bulk_edit_form_el) {
+      bulk_edit_form_el.submit(function(e) {
+        let suppress_mail_el = $('#suppress_mail');
+        if (suppress_mail_el.is(':checked')
+            || confirm('You are about to bulk-update a number of issues.  You might have wanted to suppress email notifications.\n\nClick OK to proceed updating or Cancel stay on this page.')) {
+          e.currentTarget.submit();
+        } else {
+          e.preventDefault();
+          setTimeout(function() {
+                var submit_btn = $("input[type='submit']")
+                submit_btn.removeAttr('disabled')
+                $.rails.enableElement(submit_btn)
+          }, 50)
+        }
+      });
+    }
   </script>
 <% end %>
